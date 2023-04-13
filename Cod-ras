@@ -1,0 +1,5 @@
+pragma solidity ^ 0.8.0;
+contract DistributionContract { address payable[] public participants; uint public totalAmount; 
+constructor() public { participants = [0x123..., 0x456..., 0x789...]; } function distribute() public payable { require(msg.value > 0, "No funds were sent."); 
+uint amount = msg.value / participants.length; 
+for (uint i = 0; i < participants.length; i++) { participants[i].transfer(amount); } totalAmount += msg.value; }}
